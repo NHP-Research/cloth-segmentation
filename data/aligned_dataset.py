@@ -35,11 +35,11 @@ class AlignedDataset(BaseDataset):
         self.image_info = collections.defaultdict(dict)
         self.df["CategoryId"] = self.df.ClassId.apply(lambda x: str(x).split("_")[0])
         temp_df = (
-            self.df.groupby("ImageId")["EncodedPixels", "CategoryId"]
+            self.df.groupby("ImageId")[["EncodedPixels", "CategoryId"]]
             .agg(lambda x: list(x))
             .reset_index()
         )
-        size_df = self.df.groupby("ImageId")["Height", "Width"].mean().reset_index()
+        size_df = self.df.groupby("ImageId")[["Height", "Width"]].mean().reset_index()
         temp_df = temp_df.merge(size_df, on="ImageId", how="left")
         for index, row in tqdm(temp_df.iterrows(), total=len(temp_df)):
             image_id = row["ImageId"]
