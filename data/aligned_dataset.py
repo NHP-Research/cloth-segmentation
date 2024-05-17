@@ -161,6 +161,7 @@ class AlignedDataset(BaseDataset):
         # gets ends 1d array
         ends = starts + lengths
         # creates blank mask image 1d array
+        print(shape[0] * shape[1])
         img = np.zeros(shape[0] * shape[1], dtype=np.uint8)
         # sets mark pixles
         for lo, hi in zip(starts, ends):
