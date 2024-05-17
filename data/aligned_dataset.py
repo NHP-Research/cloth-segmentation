@@ -52,6 +52,7 @@ class AlignedDataset(BaseDataset):
             self.image_info[index]["orig_height"] = row["Height"]
             self.image_info[index]["orig_width"] = row["Width"]
             self.image_info[index]["annotations"] = row["EncodedPixels"]
+            print(self.image_info[index]["orig_width"])
 
         self.dataset_size = len(self.image_info)
 
