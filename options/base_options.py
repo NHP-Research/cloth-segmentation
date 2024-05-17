@@ -9,7 +9,7 @@ class parser(object):
         self.image_folder = "/kaggle/input/imaterialist-fashion-2019-FGVC6/train" # image folder path
         # self.df_path = "../imaterialist/train.csv"  # label csv path
         self.df_path = "/kaggle/input/imaterialist-fashion-2019-FGVC6/train.csv" # label csv path
-        self.distributed = False  # True for multi gpu training
+        self.distributed = True  # True for multi gpu training
         self.isTrain = True
 
         self.fine_width = 192 * 4
