@@ -49,10 +49,9 @@ class AlignedDataset(BaseDataset):
             self.image_info[index]["width"] = self.width
             self.image_info[index]["height"] = self.height
             self.image_info[index]["labels"] = row["CategoryId"]
-            self.image_info[index]["orig_height"] = row["Height"]
-            self.image_info[index]["orig_width"] = row["Width"]
+            self.image_info[index]["orig_height"] = int(row["Height"])
+            self.image_info[index]["orig_width"] = int(row["Width"])
             self.image_info[index]["annotations"] = row["EncodedPixels"]
-            print(self.image_info[index]["orig_width"])
 
         self.dataset_size = len(self.image_info)
 
@@ -162,7 +161,7 @@ class AlignedDataset(BaseDataset):
         # gets ends 1d array
         ends = starts + lengths
         # creates blank mask image 1d array
-        print(shape[0] * shape[1])
+        # print(shape[0] * shape[1])
         img = np.zeros(shape[0] * shape[1], dtype=np.uint8)
         # sets mark pixles
         for lo, hi in zip(starts, ends):
