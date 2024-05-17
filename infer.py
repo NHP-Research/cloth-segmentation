@@ -80,7 +80,7 @@ for image_name in images_list:
     output_img = Image.fromarray(output_arr.astype("uint8"), mode="L")
     if do_palette:
         output_img.putpalette(palette)
-    output_img.save(os.path.join(result_dir, image_name[:-3] + "png"))
+    output_img.save(os.path.join(result_dir, os.path.splitext(image_name)[0] + "_generated.png"))
 
     pbar.update(1)
 
