@@ -5,9 +5,11 @@ import os
 class parser(object):
     def __init__(self):
         self.name = "training_cloth_segm_u2net_exp1"  # Expriment name
-        self.image_folder = "../imaterialist/train/"  # image folder path
-        self.df_path = "../imaterialist/train.csv"  # label csv path
-        self.distributed = False  # True for multi gpu training
+        # self.image_folder = "../imaterialist/train/"  # image folder path
+        self.image_folder = "/kaggle/input/imaterialist-fashion-2019-FGVC6/train" # image folder path
+        # self.df_path = "../imaterialist/train.csv"  # label csv path
+        self.df_path = "/kaggle/input/imaterialist-fashion-2019-FGVC6/train.csv" # label csv path
+        self.distributed = True  # True for multi gpu training
         self.isTrain = True
 
         self.fine_width = 192 * 4
