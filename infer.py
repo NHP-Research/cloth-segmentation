@@ -22,7 +22,8 @@ device = "cuda"
 
 image_dir = "input_images"
 result_dir = "output_images"
-checkpoint_path = os.path.join("trained_checkpoint", "cloth_segm_u2net_latest.pth")
+# checkpoint_path = os.path.join("trained_checkpoint", "cloth_segm_u2net_latest.pth")
+checkpoint_path = os.path.join("cloth_segm_u2net.pth")
 do_palette = True
 
 
